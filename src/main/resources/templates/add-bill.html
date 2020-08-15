@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Bill</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+    <h3><a href="/" >
+        <i class="fas fa-backward ml-2"> Back </i></a> | Add Employee</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/createBill}" th:object="${bill}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="employeeId" class="col-form-label">employeeId</label>
+                            <input type="text" th:field="*{employeeId}" class="form-control"
+                                   id="employeeId" placeholder="employeeId" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="rate" class="col-form-label">Rate</label>
+                            <input type="text" th:field="*{rate}" class="form-control"
+                                   id="rate" placeholder="Rate" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="project" class="col-form-label">Project</label>
+                            <input type="text" th:field="*{project}" class="form-control"
+                                   id="project" placeholder="Project" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="date" class="col-form-label">Date</label>
+                            <input type="text" th:field="*{date}" class="form-control"
+                                   id="date" placeholder="Date(YYYY-MM-DD)" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="startTime" class="col-form-label">Start Time</label>
+                            <input type="text" th:field="*{startTime}" class="form-control"
+                                   id="startTime" placeholder="Start Time" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="endTime" class="col-form-label">End Time</label>
+                            <input type="text" th:field="*{endTime}" class="form-control"
+                                   id="endTime" placeholder="End Time" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+                        <input type="hidden" id="id" th:field="*{id}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

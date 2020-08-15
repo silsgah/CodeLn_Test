@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>All Customer Voucher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${customers}" class="container my-5">
+                <p class="my-5">
+                    <a href="/customer/edit" class="btn btn-primary">
+                        <i class="fas fa-user-plus ml-2"> Add Customer Order</i></a>
+                    <a href="/" class="btn btn-default">
+                        <i class="fas fa-backward ml-2"> Back </i></a>
+                </p>
+                <div class="col-md-10">
+                    <h2 th:case="null">No record found !!</h2>
+                    <div th:case="*">
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+                                <th>Customer-Id</th>
+                                <th>Name</th>
+                                <th>Order Value</th>
+                                <th>Voucher Value</th>
+                                <th>Redeemed</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="customer : ${customers}">
+                                <td th:text="${customer.customerId}"></td>
+                                <td th:text="${customer.customerFirstName}"></td>
+                                <td th:text="${customer.customerOrderValue}"></td>
+                                <td th:text="${customer.voucherValue}"></td>
+                                <td th:text="${customer.redeemed}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
